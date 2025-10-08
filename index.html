@@ -1,15 +1,212 @@
 <!doctype html>
-<html>
-  <head>
-    <title>My first webpage</title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Professional Portfolio</title>
+  <meta name="description" content="Professional portfolio for Your Name — resume, LinkedIn, summary, and contact details." />
+  <style>
+    /* --- Simple, modern, responsive styling --- */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa7bf; --accent:#06b6d4; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:14px; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#071027 0%, #061221 60%);
+      color:#e6eef8; display:flex; align-items:center; justify-content:center;
+      padding:32px;
+    }
+    .container{width:100%; max-width:var(--maxw);}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{display:flex; gap:12px; align-items:center;}
+    .logo{
+      width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#7c3aed);
+      display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px;
+      box-shadow:0 6px 18px rgba(3,7,18,0.6);
+    }
+    nav a{
+      color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600; font-size:14px;
+    }
+    nav a:hover{color:var(--accent)}
+    main{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:28px; box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start;
+    }
 
-  <body>
-    <h1>Welcome to my JAMstack wesbite</h1>
-    <h3>Its super easy</h3>
+    /* left column (headshot + links) */
+    .profile{
+      background:var(--card); padding:20px; border-radius:12px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .photo{
+      width:100%; aspect-ratio: 1/1; border-radius:10px; object-fit:cover; background:var(--glass);
+      display:block; margin-bottom:14px;
+    }
+    .name{font-size:20px; font-weight:700; margin:0 0 6px}
+    .title{color:var(--muted); font-size:14px; margin:0 0 12px}
+    .links{display:flex; flex-direction:column; gap:8px}
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; padding:10px 12px; border-radius:10px;
+      text-decoration:none; color:inherit; font-weight:600; background:transparent; border:1px solid rgba(255,255,255,0.03);
+    }
+    .btn svg{width:18px;height:18px; opacity:0.95}
+    .download{background:linear-gradient(90deg,#0ea5a4,#7c3aed); color:#04111a; box-shadow: 0 6px 18px rgba(12,20,30,0.6);}
 
-    <p>This website is built with HTML abd deployed using GitHub. I don't know what else to write in here.</p>
+    /* right column (content) */
+    section.card{
+      background:transparent; padding:0; border-radius:12px;
+    }
+    .summary{
+      margin:0 0 18px; font-size:15px; line-height:1.55; color:#dce9fb;
+    }
+    .about{background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; color:var(--muted)}
+    .about h3{margin:0 0 8px; font-size:16px}
+    .skills{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .chip{background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-weight:600; font-size:13px; color:var(--muted)}
 
-    
-  </body>
+    footer{margin-top:18px; color:var(--muted); font-size:14px; text-align:center}
+    /* responsive */
+    @media (max-width:880px){
+      main{grid-template-columns:1fr; padding:18px}
+      .profile{order:2}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="brand">
+        <!-- first letter logo; replace with your own image if desired -->
+        <div class="logo" aria-hidden="true">YN</div>
+        <div>
+          <div style="font-weight:800; font-size:18px">Your Name</div>
+          <div style="color:var(--muted); font-size:13px">Role • Location • Open to work / opportunities</div>
+        </div>
+      </div>
+
+      <nav aria-label="Top navigation">
+        <!-- quick jump links (internal anchors) -->
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- LEFT: headshot + quick links -->
+      <aside class="profile" aria-label="Profile card">
+        <!-- Replace src with path to your headshot, e.g. assets/headshot.jpg -->
+        <img class="photo" src="assets/headshot.jpg" alt="Headshot of Your Name" onerror="this.style.opacity=0.6; this.alt='Headshot placeholder';" />
+
+        <h2 class="name">Your Name</h2>
+        <div class="title">Software Engineer · Data Analyst · Product-focused</div>
+
+        <div class="links" style="margin-top:12px">
+          <!-- Resume link: replace href with a relative path on your repo (e.g., assets/Resume_YourName.pdf) -->
+          <a class="btn download" href="assets/Resume_YourName.pdf" target="_blank" rel="noopener noreferrer">
+            <!-- download icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12" stroke="#04111a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11l4 4 4-4" stroke="#04111a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3" stroke="#04111a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View / Download Resume
+          </a>
+
+          <!-- LinkedIn: replace href -->
+          <a class="btn" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-14h4v2.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            LinkedIn
+          </a>
+
+          <!-- Email (mailto) -->
+          <a class="btn" href="mailto:youremail@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8.5l9 6 9-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/></svg>
+            Email
+          </a>
+        </div>
+
+        <div style="margin-top:14px; color:var(--muted); font-size:13px">
+          <strong>Location:</strong> City, State · <strong>Availability:</strong> Open to new roles
+        </div>
+      </aside>
+
+      <!-- RIGHT: summary + about + projects -->
+      <section class="card" aria-labelledby="summary-heading">
+        <h3 id="summary-heading" style="margin:0 0 12px; font-size:18px">Professional Summary</h3>
+        <p class="summary">
+          I am a results-driven software engineer with experience building reliable, maintainable web applications and data pipelines.
+          I enjoy turning ambiguous problems into clear, testable solutions and shipping high-impact features. My background spans full-stack development,
+          data analysis, and product collaboration.
+        </p>
+
+        <div id="about" class="about" style="margin-bottom:14px">
+          <h3>About me</h3>
+          <p style="margin:0; color:var(--muted); font-size:15px; line-height:1.55">
+            Short paragraph describing your background, strengths, and what you're passionate about. Mention key tools/languages (e.g., JavaScript, Python, SQL),
+            industries you've worked in, or the types of problems you like to solve.
+          </p>
+
+          <div class="skills" aria-hidden="false" style="margin-top:10px">
+            <div class="chip">JavaScript / TypeScript</div>
+            <div class="chip">React</div>
+            <div class="chip">C# / .NET</div>
+            <div class="chip">Python</div>
+            <div class="chip">SQL</div>
+            <div class="chip">Cloud (AWS)</div>
+          </div>
+        </div>
+
+        <div id="projects" style="margin-bottom:12px">
+          <h3 style="margin:0 0 8px">Selected Projects</h3>
+          <ul style="color:var(--muted); margin-top:8px; line-height:1.5">
+            <li><strong>Project A</strong> — Short one-line description of what it does, your role, and tech used. <em>(link to repo or demo)</em></li>
+            <li><strong>Project B</strong> — Short one-liner about impact or notable technical challenge solved.</li>
+          </ul>
+        </div>
+
+        <div id="contact" style="margin-top:8px; display:flex; gap:12px; align-items:center">
+          <a class="btn" href="assets/Resume_YourName.pdf" target="_blank" rel="noopener noreferrer">Download Resume (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="mailto:youremail@example.com">Contact</a>
+        </div>
+
+        <footer>
+          Built with ♥ · <span style="opacity:0.9">Your Name — © <span id="year"></span></span>
+        </footer>
+      </section>
+    </main>
+
+    <!-- small usage notes (not visible until you inspect) -->
+    <p style="display:none">
+      Notes:
+      - Replace "assets/headshot.jpg" with your headshot path. If you host resume in repo, put at assets/Resume_YourName.pdf and update links.
+      - Edit text (summary, about, projects) to reflect your real experience.
+      - For GitHub Pages: commit this file as index.html at the repository root or in gh-pages branch.
+    </p>
+  </div>
+
+  <script>
+    // small JS: update current year and graceful fallback for missing headshot
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.photo').forEach(img=>{
+      img.addEventListener('error', ()=> {
+        // graceful placeholder using initials if image missing
+        const placeholder = document.createElement('div');
+        placeholder.style.width = '100%';
+        placeholder.style.aspectRatio = '1/1';
+        placeholder.style.display = 'flex';
+        placeholder.style.alignItems = 'center';
+        placeholder.style.justifyContent = 'center';
+        placeholder.style.borderRadius = '10px';
+        placeholder.style.background = 'linear-gradient(135deg,#0ea5a4,#7c3aed)';
+        placeholder.style.fontWeight = '800';
+        placeholder.style.fontSize = '34px';
+        placeholder.textContent = 'YN'; // change to your initials if you like
+        img.replaceWith(placeholder);
+      }, {once:true});
+    });
+  </script>
+</body>
 </html>
