@@ -1,44 +1,96 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cade Mandel Portfolio</title>
     <style>
-      /* The styling information was learned from gen AI */
+      /* === GLOBAL STYLES === */
       body {
-        background-color: #e6eef7;
-        font-family: Arial, sans-serif;
+        background-color: #f4f7fb;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
         color: #0b2540;
-        margin: 40px;
+        margin: 0;
+        padding: 0;
       }
 
-      h1 {
+      h1, h2, h3 {
+        color: #0b2540;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* === HEADER / HERO === */
+      header {
+        background-color: #0b2540;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      header h1 {
+        font-size: 2.8em;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 1.2em;
+        color: #d0e2ff;
+      }
+
+      /* === MAIN CONTENT === */
+      main {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      section {
+        margin-bottom: 60px;
+      }
+
+      figure {
         text-align: center;
       }
 
-      h3 {
-        margin-top: 30px;
-      }
-
-      p {
-        line-height: 1.6;
-      }
       img {
         display: block;
         margin: 20px auto;
         width: 250px;
         border-radius: 10px;
-      }      
-      figure {
-        text-align: center;
-        margin: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       }
 
       figcaption {
         font-size: 0.9em;
         color: #4a5a70;
-        margin-top: 8px;
         font-style: italic;
+        margin-top: 8px;
       }
+
+      p {
+        line-height: 1.7;
+      }
+
+      /* === CARD STYLE (for experience) === */
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      }
+
+      /* === BUTTONS === */
       .buttons {
         text-align: center;
         margin-top: 40px;
@@ -49,32 +101,95 @@
         background-color: #0b2540;
         color: white;
         text-decoration: none;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 6px;
+        padding: 12px 24px;
+        margin: 8px;
+        border-radius: 8px;
         transition: background-color 0.3s ease;
       }
 
       .button:hover {
         background-color: #1f3d66;
       }
+
+      /* === AI MEDIA SECTION === */
+      .ai-showcase {
+        text-align: center;
+        background-color: #e6eef7;
+        padding: 40px 20px;
+        border-radius: 12px;
+      }
+
+      .ai-showcase iframe,
+      .ai-showcase img {
+        margin-top: 20px;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      /* === FOOTER === */
+      footer {
+        background-color: #0b2540;
+        color: #d0e2ff;
+        text-align: center;
+        padding: 30px 10px;
+        font-size: 0.9em;
+      }
     </style>
   </head>
 
   <body>
-    <h1>Cade Mandel Portfolio</h1>
-    <h3>About</h3>
-    <p>Howdy! My name is Cade Mandel, I am currently a junior at Texas A&M University pursuing a degree in management information systems and a minor in artificial intelligence in business.</p>
-    <figure>
-      <img src="CadeMandelComposite.jpg" alt="Headshot of Cade Mandel">
-      <figcaption>Sorry for poor quality, I never bought the photo and used a watermark remover.</figcaption>
-    </figure>
-    <h3>Experience and Involvement</h3>
-    <p>This past summer I interned at Bray International where I worked within the information technology department. This was a great experience where I was introduced to PowerBI, SQL, and DAX. I was also able to learn valuable project management skills throughout the internship.</p>
-    <p>On campus, I'm involved with the Texas Mu chapter of the Sigma Phi Epsilon fraternity. I am the current VP of Finance and this position has taught me valuable management and treasury skills.</p>
-    <div class="buttons">
-      <a href="https://www.linkedin.com/in/cade-mandel" target="_blank" class="button">LinkedIn</a>
-      <a href="CadeMandelResume.pdf" target="_blank" class="button">Download Resume</a>
-    </div>
+    <header>
+      <h1>Cade Mandel</h1>
+      <p>Management Information Systems | AI in Business | Texas A&M University</p>
+    </header>
+
+    <main>
+      <!-- ABOUT SECTION -->
+      <section>
+        <h2>About Me</h2>
+        <p>Howdy! My name is <strong>Cade Mandel</strong>, and I’m a junior at Texas A&M University pursuing a degree in Management Information Systems and a minor in Artificial Intelligence in Business. I’m passionate about data-driven decision making, project management, and leveraging AI to improve business efficiency.</p>
+        <figure>
+          <img src="CadeMandelComposite.jpg" alt="Headshot of Cade Mandel">
+          <figcaption>(Sorry for poor quality — I never bought the photo and used a watermark remover.)</figcaption>
+        </figure>
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section>
+        <h2>Experience & Involvement</h2>
+        <div class="card">
+          <h3>Information Technology Intern — Bray International</h3>
+          <p>Worked with Power BI, SQL, and DAX to streamline internal data processes and reporting. Gained valuable experience in IT systems management and cross-departmental project collaboration.</p>
+        </div>
+        <div class="card">
+          <h3>Vice President of Finance — Sigma Phi Epsilon</h3>
+          <p>Manage chapter financial operations and budgeting. Developed leadership, treasury management, and organizational planning skills through active executive involvement.</p>
+        </div>
+      </section>
+
+      <!-- AI SHOWCASE SECTION -->
+      <section class="ai-showcase">
+        <h2>AI Media Showcase</h2>
+        <p>This section features AI-generated media created using Google <strong>Veo</strong> (video generation) or <strong>Imagen Nano</strong> (image generation). These tools represent the cutting edge of creative AI, blending technology with professional presentation.</p>
+        
+        <!-- Placeholder for generated video (Google Veo) -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder_video" title="AI-Generated Video Placeholder" frameborder="0" allowfullscreen></iframe>
+        
+        <!-- Placeholder for generated image (Google Nano / Imagen) -->
+        <!-- Example: <img src="ai-generated-image.jpg" alt="AI Generated Visualization"> -->
+        <p style="font-size: 0.9em; margin-top: 10px;">(Placeholder — Replace with AI-generated content once available)</p>
+      </section>
+
+      <!-- LINKS SECTION -->
+      <div class="buttons">
+        <a href="https://www.linkedin.com/in/cade-mandel" target="_blank" class="button">LinkedIn</a>
+        <a href="CadeMandelResume.pdf" target="_blank" class="button">Download Resume</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Cade Mandel | Designed & Developed by Cade Mandel</p>
+    </footer>
   </body>
 </html>
